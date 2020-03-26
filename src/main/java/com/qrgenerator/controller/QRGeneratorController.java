@@ -44,9 +44,9 @@ public class QRGeneratorController<ProductDetailDTO> {
 		System.out.println("before receiving response");
 		qrresponse = qrGeneratorBO.getQRCodeImage(inputDTO);
 		String encodstring = encodeFileToBase64Binary(qrresponse);
-		//System.out.println("Base64 string from fnc.:::"+encodstring);
+		System.out.println("Base64 string from fnc.:::"+encodstring);
 		encodstring="data:image/png;base64,"+encodstring;
-		//System.out.println("Base64 string from fnc. after appending:::"+encodstring);
+		System.out.println("Base64 string from fnc. after appending:::"+encodstring);
 		respjson.put("response", encodstring);
 		resp = respjson.toString();
 		resp=resp.replaceAll("\\\\", "");

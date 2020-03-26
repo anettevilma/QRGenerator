@@ -7,7 +7,10 @@ import java.io.IOException;
 //import java.nio.file.Path;
 import java.security.NoSuchAlgorithmException;
 import java.util.Base64;
+import java.util.HashMap;
+import java.util.Map;
 
+import org.json.JSONObject;
 import org.springframework.stereotype.Service;
 
 import com.google.zxing.BarcodeFormat;
@@ -25,14 +28,19 @@ public class QRGeneratorBO {
 
 	static byte[] response;
 	static String productdetail="";
+	static HashMap<String,String> inputmap;
 	static int width;
 	static int height;
 	static String productencoded;
 
 	public static byte[] getQRCodeImage(InputDTO inputDTO)
 			throws NoSuchAlgorithmException, IOException {
-		productdetail=inputDTO.getData().toString();
-		System.out.println("Before encoding::"+productdetail);
+		inputmap=(HashMap) inputDTO.getData();
+		JSONObject json = new JSONObject(inputmap);
+	   	//productdetail=inputDTO.getData().toString();
+		//System.out.println("Before encoding::"+productdetail);
+		productdetail=json.toString();
+		System.out.println("String appended::"+productdetail);
 		productencoded= Base64.getEncoder().encodeToString(productdetail.getBytes());
 		System.out.println("After encoding::"+productencoded);
 		width=inputDTO.getWidth();

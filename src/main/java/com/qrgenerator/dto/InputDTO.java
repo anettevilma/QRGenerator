@@ -3,7 +3,7 @@ package com.qrgenerator.dto;
 
 import java.util.HashMap;
 
-
+import org.json.JSONObject;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
