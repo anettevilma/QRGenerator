@@ -50,7 +50,7 @@ public class QRGeneratorController<ProductDetailDTO> {
 		respjson.put("response", encodstring);
 		resp = respjson.toString();
 		resp=resp.replaceAll("\\\\", "");
-		System.out.println("json response:"+respjson);
+		System.out.println("json response:"+resp);
 		return resp;
 
 	}
